@@ -5,15 +5,46 @@
 }
 
 html {
+    scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .clear {
     clear :both;
 }
-
+.text-center {
+    text-align: center !important;
+}
 .text-white {
     color: #fff !important;
+}
+.mt-8 {
+    margin-top: 8px !important;
+}
+.mt-16 {
+    margin-top: 16px !important;
+}
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.col-full {
+    width: 100%;
+}
+
+.col-half {
+    width: 50%;
 }
 
 #main {
@@ -66,7 +97,7 @@ html {
 }
 #nav .subnav li:hover {
     color: #000;
-    background-color: violet;
+    background-color: #ddd;
 }
 #nav .subnav a {
     color: #000;
@@ -107,8 +138,8 @@ html {
 #slider {
     position: relative;
     margin-top: 46px;
-    padding-top: 50%;
-    background: url('/github-build-a-band-website/assets/img/slider/slider_1.jpg') top center / cover no-repeat;
+    height: calc(100vh - 46px );
+    background: url('../img/slider/slider_1.jpg') top center / cover no-repeat;
 }
 #slider .text-content {
     position: absolute;
@@ -135,7 +166,7 @@ html {
 
 #content .content-section {
     width: 800px;
-    padding: 64px 0;
+    padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -163,12 +194,16 @@ html {
 
 #content .members-list {
    margin-top: 48px;
+   display: grid;
+   grid-template-columns: auto auto auto auto;
+   justify-content: space-between;
+
 }
 
 #content .member-item {
-    float:left;
+    /* float:left; */
+    /* width: 33.33333%; */
     text-align: center;
-    width: 33.33333%;
 }
 #content .member-name {
     font-size: 15px;
@@ -202,6 +237,8 @@ html {
     color: #fff;
     padding: 3px 4px;
     margin-left: 16px;
+    border-radius: 4px ;
+    font-size: 12px;
 }
 
 .tickits-list .quantity {
@@ -218,13 +255,27 @@ html {
 /* Places */
 .places-list {
     margin: 32px -8px 0;
-    padding-bottom: 48px;
+    /* padding-bottom: 48px; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+}
+
+.sold-out-place {
+    position: absolute;
+    right: 0px;  
+    color: #fff;
+    background-color: #f44336;
+    font-size: 12px;
+    padding: 3px 4px;
+    margin-right: 8px;
 }
 
 .place-item {
-    float: left;
-    width: 33.33333%;
+    /* float: left; */
+    /* width: 33.33333%; */
     padding: 0 8px;
+    position: relative; 
 }
 
 .place-img {
@@ -261,6 +312,7 @@ html {
 .place-buy-btn:hover {
     color: #000;
     background-color: #ddd;
+    cursor: pointer;
 }
 
 .place-buy-btn {
@@ -270,11 +322,79 @@ html {
     padding: 11px 36px ;
     display: inline-block;
     margin-top: 15px;
+    border: none;
+}
+/* contact */
+.content-section {
+    
 }
 
+.section-heading {
+    color: #000;
+}
 
+.section-sub-heading {
+color: #000;
+}
+
+.contact-content{
+    margin-top: 48px;
+}
+.contact-info {
+    font-size: 18px ;
+    line-height: 1.5;
+}
+.contact-info i[class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form {
+    font-size: 15px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+.contact-form .form-submit-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding:10px 16px ;
+    float: right;
+}
+.contact-form .form-submit-btn:hover {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+.map-section img {
+    width: 100%;
+}
+/* footer */
 #footer {
+    padding: 64px 16px;
+    text-align: center;
+}
 
+#footer .socials-list {
+    font-size: 24px;
+}
+#footer .socials-list a {
+    color: rgba(0 ,0 ,0 ,0.6);
+}
+#footer .copyright a:hover,
+#footer .socials-list a:hover{
+    color: rgba(0 ,0 ,0 ,0.4);
+}
+#footer .copyright {
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.6);
+}
+#footer .copyright a {
+    color: rgba(0, 0, 0, 0.6);
 }
 .modal {
     position: fixed;
@@ -282,7 +402,7 @@ html {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0,4);
+    background-color: rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
     display: none;
@@ -308,9 +428,17 @@ html {
     font-size: 30px;
     color: #fff;
 }
+
 .modal-heading-icon {
     margin-right: 16px;
 }
+
+.modal-close:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    color: #000;
+}
+
 .modal-close {
     position: absolute;
     right: 0;
@@ -319,9 +447,11 @@ html {
     padding: 12px;
     opacity: 0.8;
 }
+
 .modal-body {
     padding: 16px;
 }
+
 .modal-label {
     display: block;
     font-size: 15px;
@@ -355,6 +485,7 @@ html {
 .modal-footer a {
     color: #2196f3;
 }
+
 @keyframes modalFadeIn {
     from {
         opacity: 0;
