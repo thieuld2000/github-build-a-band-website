@@ -7,6 +7,7 @@
     <title>The Band</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon-theBand.ico">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -35,6 +36,9 @@
             <!-- Begin: Search button-->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
+            </div>
+            <div id ="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
             </div>
             <!-- End: Search button-->
 
@@ -96,7 +100,7 @@
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Pri 27 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button disabled class="place-buy-btn js-buy-ticket">Buy Tickits</button>
+                                <button disabled class="place-buy-btn js-buy-ticket s-full-width">Buy Tickits</button>
                             </div>
                         </div>
                         <div class="place-item">
@@ -105,7 +109,7 @@
                                 <h3 class="place-heading">Paris</h3>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="place-buy-btn js-buy-ticket">Buy Tickits</button>
+                                <button class="place-buy-btn js-buy-ticket s-full-width">Buy Tickits</button>
                             </div>
                         </div>
                         <div class="place-item">
@@ -114,7 +118,7 @@
                                 <h3 class="place-heading">San Francisco</h3>
                                 <p class="place-time">Sun 29 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="place-buy-btn js-buy-ticket">Buy Tickits</button>
+                                <button class="place-buy-btn js-buy-ticket s-full-width">Buy Tickits</button>
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -157,18 +161,18 @@
                 <h2 class="section-heading">CONTACT</h2>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
                 <div class="row contact-content">
-                    <div class="col col-half contact-info">
+                    <div class="col col-half s-col-full contact-info">
                         <P><i class="ti-location-pin"></i>Chicago, US</P>
-                        <P><i class="ti-mobile"></i>Phone: +00 151515</P>
-                        <P><i class="ti-email"></i>Email: mail@mail.com</P>
+                        <P><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></P>
+                        <P><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></P>
                     </div>
-                    <div class="col col-half contact-form">
+                    <div class="col col-half s-col-full contact-form">
                         <form action="">
                             <div class="row">
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full ">
                                     <input type="text" name="" placeholder="Name" required id="" class="form-control">
                                 </div>
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full s-mt-8">
                                     <input type="email" name="" placeholder="Email" required id="" class="form-control">
                                 </div>
                             </div>
@@ -177,7 +181,7 @@
                                     <input type="text" name="" placeholder="Message" required id="" class="form-control">
                                 </div>
                             </div>
-                            <input class = "form-submit-btn mt-16" type="submit" value="SEND">  
+                            <input class = "form-submit-btn s-full-width mt-16" type="submit" value="SEND">  
                         </form>
                     </div>
                 </div>    
@@ -225,5 +229,31 @@
             event.stopPropagation()
         })
     </script>    
+    <script>
+        var header = document.getElementById('header')
+        var mobileMenu = document.getElementById('mobile-menu')
+        var headerHeight = header.clientHeight;
+        // dong mo mobile menu
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+        for (var i =0;i < menuItems.length; i++){
+            var menuItem = menuItems[i];
+            menuItem.onclick = function(Event) {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
+                if(isParentMenu) {
+                    Event.preventDefault();
+                } else {
+                    header.style.height = null;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
