@@ -28,6 +28,15 @@
     .modal-container {
         width: 600px;
     }
+    .modal-label {
+        font-size: 22px;
+    }
+    .label-input {
+        font-size: 22px;
+    }
+    #buy-tickets {
+        font-size: 22px;
+    }
 }
 @media (max-width: 46.1875em) {
     .s-full-width {
