@@ -463,6 +463,13 @@ color: #000;
     color: #fff;
 }
 
+.test{
+    backdrop-filter:blur();
+}
+
+
+
+
 .modal-heading-icon {
     margin-right: 16px;
 }

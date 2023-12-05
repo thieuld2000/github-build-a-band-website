@@ -90,6 +90,7 @@
         display: grid;
         grid-template-columns: auto;
         row-gap: 16px;
+        justify-content: center;
     }
     #content .member-img {
         width: 60%;
@@ -98,6 +99,12 @@
         margin-top: 32px;
     }
     .modal-container {
+        margin: 0 10px;
+    }
+    .modal-container2 {
+        margin: 0 10px;
+    }
+    .modal-container3 {
         margin: 0 10px;
     }
 }
