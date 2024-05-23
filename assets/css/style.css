@@ -524,7 +524,8 @@ color: #000;
     text-align: right;
 }
 .modal-footer a {
-    color: #2196f3;
+    /* color: #2196f3; */
+    color: black
 }
 
 @keyframes modalFadeIn {
